@@ -1,8 +1,13 @@
 const CACHE = 'diploma-v1';
 const timeout = 400;
 
+const log = (message) => {
+
+    // console.log(message)
+};
+
 self.addEventListener('install', (event) => {
-    console.log('Установлен');
+    log('Установлен');
     /*event.waitUntil(
         caches.open(CACHE).then(function(cache) {
             return cache.addAll([
@@ -24,17 +29,17 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', () => {
-    console.log('Активирован');
+    log('Активирован');
 });
 
 self.addEventListener('fetch', function (event) {
-        console.log('Service Worker Fetch...');
+        log('Service Worker Fetch...');
 
         event.respondWith(
             caches.match(event.request)
                 .then(function (response) {
                     if (response) {
-                        console.log('Serve from cache', response);
+                        log('Serve from cache', response);
                         return response;
                     }
                     return fetch(event.request)
