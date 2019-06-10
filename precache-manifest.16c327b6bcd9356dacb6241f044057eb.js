@@ -44,12 +44,12 @@ self.__precacheManifest = [
     "url": "/static/media/notification.c0d3c94c.eot"
   },
   {
-    "revision": "0b4ac1dc75df35e169b70d7719afe4cc",
-    "url": "/static/media/notification.0b4ac1dc.ttf"
-  },
-  {
     "revision": "651771e1df95c807c99608188d0a4287",
     "url": "/static/media/notification.651771e1.woff"
+  },
+  {
+    "revision": "0b4ac1dc75df35e169b70d7719afe4cc",
+    "url": "/static/media/notification.0b4ac1dc.ttf"
   },
   {
     "revision": "3f75743879b80eab1023",
