@@ -7,7 +7,7 @@ const log = (message) => {
 };
 
 self.addEventListener('install', (event) => {
-    log('Установлен');
+    log('Встановлено');
     /*event.waitUntil(
         caches.open(CACHE).then(function(cache) {
             return cache.addAll([
@@ -29,7 +29,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', () => {
-    log('Активирован');
+    log('Активований');
 });
 
 self.addEventListener('fetch', function (event) {

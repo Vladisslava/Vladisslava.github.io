@@ -1,8 +1,8 @@
 {
-  "name": "Surprise",
-  "short_name": "Surprise",
-  "theme_color": "#3581b8",
-  "background_color": "#3581b8",
+  "name": "Подаруй",
+  "short_name": "Подаруй",
+  "theme_color": "#087587",
+  "background_color": "#087587",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
