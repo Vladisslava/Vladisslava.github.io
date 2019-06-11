@@ -34,28 +34,26 @@ self.addEventListener('activate', () => {
 
 self.addEventListener('fetch', function (event) {
         log('Service Worker Fetch...');
+        if (event.request.method !== 'GET') {
+            return;
+        }
 
-        event.respondWith(
-            caches.match(event.request)
-                .then(function (response) {
-                    if (response) {
-                        log('Serve from cache', response);
-                        return response;
-                    }
-                    return fetch(event.request)
-                        .then(response =>
-                            caches.open(CACHE)
-                                .then((cache) => {
-                                    // cache response after making a request
-                                    cache.put(event.request, response.clone());
-                                    // return original response
-                                    return response;
-                                })
-                        )
-                })
-        )
+        event.respondWith(networkElseCache(event))
     }
 );
+
+function networkElseCache(event) {
+    return caches.match(event.request).then(match => {
+        if (!match) {
+            return fetch(event.request);
+        }
+        return fetch(event.request).then(response => {
+            // Update cache.
+            caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
+            return response;
+        });
+    });
+}
 
 // Временно-ограниченный запрос.
 function fromNetwork(request, timeout) {
