@@ -8,24 +8,6 @@ const log = (message) => {
 
 self.addEventListener('install', (event) => {
     log('Встановлено');
-    /*event.waitUntil(
-        caches.open(CACHE).then(function(cache) {
-            return cache.addAll([
-                '/',
-                '/manifest.json',
-                '/favicon.ico',
-                '/asset-manifest.json',
-                '/static/css/2.*.chunk.css',
-                '/static/css/main.*.chunk.css',
-                '/static/js/2.*.chunk.js',
-                '/static/js/main.*.chunk.js',
-                '/static/js/runtime~main.*.js',
-                '/static/media/!*.*',
-                '/sw.js',
-                '/index.html'
-            ].map(item => 'http://localhost:3000' + item));
-        })
-    );*/
 });
 
 self.addEventListener('activate', () => {
